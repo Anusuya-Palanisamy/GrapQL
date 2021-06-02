@@ -1,0 +1,205 @@
+<br />
+<h2 style="text-align: center">Welcome to Our Shop !</h2>
+<span class="spacer"></span>
+<a mat-raised-button (click)="signOut()" color="primary"
+  ><mat-icon>power_settings_new</mat-icon> Logout</a
+>
+<p style="color: blue">ID : {{ user.email }}</p>
+
+<div class="customerDetails">
+  <br />
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <form class="sample-form" [formGroup]="formData">
+        <h2 class="example-h2">List Of Categeries</h2>
+
+        <h2 class="example-h2">Brand:</h2>
+
+        <mat-radio-group formControlName="brand" aria-label="Select an option">
+          <mat-radio-button value="Hp">Hp</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel</mat-radio-button><br /><br />
+          <mat-radio-button value="Dell">Dell</mat-radio-button><br /><br />
+          <mat-radio-button value="Lenovo"
+            >Lenovo</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+
+        <!--<h2 class="example-h2">Price: </h2>
+
+    <mat-radio-group formControlName="price" aria-label="Select an option">
+<mat-radio-button value="30,000.00-40,000.00">30,000.00-40,000.00</mat-radio-button><br><br>
+<mat-radio-button value="40,000.00-60,000.00">40,000.00-60,000.00</mat-radio-button><br><br>
+<mat-radio-button value="60,000.00-80,000.00">60,000.00-80,000.00</mat-radio-button><br><br>
+</mat-radio-group><br><br>-->
+
+        <h2 class="example-h2">Processor:</h2>
+        <mat-radio-group
+          formControlName="processor"
+          aria-label="Select an option"
+        >
+          <br />
+          <mat-radio-button value="AMD">AMD</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel Core i7</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="Intel">Intel Core i3</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="NVIDIA">NVIDIA</mat-radio-button><br /><br />
+          <mat-radio-button value="Qualcomm™ Adreno 504"
+            >Qualcomm™ Adreno 504</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+
+        <h2 class="example-h2">memory:</h2>
+        <mat-radio-group
+          formControlName="memory"
+          placeholder="--Select the State--"
+        >
+          <mat-radio-button value="16 GB">16 GB</mat-radio-button>
+          <mat-radio-button value="8 GB">8 GB</mat-radio-button>
+          <mat-radio-button value="4 GB">4 GB</mat-radio-button>
+          <mat-radio-button value="2 GB"
+            >2 GB</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+
+        <h2 class="example-h2">Screen Size:</h2>
+        <mat-radio-group
+          formControlName="screenSize"
+          placeholder="--Select the State--"
+        >
+          <mat-radio-button value="33.78cms">33.78cms</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="35.56cms">35.56cms</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="39.62cms">39.62cms</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="43.94cms">43.94cms</mat-radio-button
+          ><br /><br /> </mat-radio-group
+        ><br /><br />
+
+        <h2 class="example-h2">Graphices:</h2>
+        <mat-radio-group
+          formControlName="graphices"
+          placeholder="--Select the State--"
+        >
+          <br />
+          <mat-radio-button value="AMD">AMD</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel</mat-radio-button><br /><br />
+          <mat-radio-button value="NVIDIA">NVIDIA</mat-radio-button><br /><br />
+          <mat-radio-button value="Qualcomm™ Adreno 504"
+            >Qualcomm™ Adreno 504</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+      </form>
+
+      <button mat-raised-button (click)="filterDataLaptop()" color="primary">
+        Filter
+      </button>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <button mat-raised-button (click)="drawer.toggle()" color="primary">
+        <mat-icon>filter_list</mat-icon> Filter</button
+      ><br />
+      <br />
+    </div>
+
+    <!--<div *ngFor="let Laptop of laptop">
+      <img src="/assets/image/Laptop.jpg" />
+      <p>
+        Brand: {{ Laptop.brand }}, Price: {{ Laptop.price }},Processor:{{
+          Laptop.processor
+        }}
+      </p>
+      <p>
+        Memeory: {{ Laptop.memory }}, Screen Size: {{ Laptop.screenSize }},
+        Graphices: {{ Laptop.graphices }}
+      </p>
+      <p>Details: {{ Laptop.details }}</p>
+
+      <!-<button mat-raised-button  color="primary"><mat-icon>add_shopping_cart</mat-icon>
+        Add To Cart</button>&nbsp;&nbsp;>
+
+      <button mat-raised-button (click)="buyLaptop(Laptop)" color="primary">
+        <mat-icon>done</mat-icon> Buy Now</button
+      ><br /><br />
+    </div>-->
+    <div>
+      <table>
+        <tr *ngFor="let Laptop1 of laptopList">
+          <th *ngFor="let laptopArray of Laptop1">
+            <mat-card class="card">
+              <mat-card-header> </mat-card-header>
+              <mat-card-content>
+                <img src="/assets/image/Laptop.jpg" />
+                <p>
+                  Brand: {{ laptopArray.brand }}, Price:₹
+                  {{ laptopArray.price }}.00,Processor:{{
+                    laptopArray.processor
+                  }}
+                </p>
+                <p>
+                  Memeory: {{ laptopArray.memory }}, Screen Size:
+                  {{ laptopArray.screenSize }}, Graphices:
+                  {{ laptopArray.graphices }}
+                </p>
+                <p>
+                  Details: {{ laptopArray.details }}, Quantity :
+                  {{ laptopArray.quan }}
+                </p>
+
+                <button
+                  mat-raised-button
+                  (click)="buyLaptop(laptopArray)"
+                  color="primary"
+                >
+                  <mat-icon>done</mat-icon> Buy Now
+                </button>
+              </mat-card-content>
+            </mat-card>
+          </th>
+        </tr>
+      </table>
+    </div>
+    <br /><br />
+  </mat-drawer-container>
+</div>
+
+<!--<div>
+      <table>
+        <tr *ngFor="let Laptop1 of laptopList">
+          <th *ngFor="let laptopArray of Laptop1">
+            <mat-card class="card">
+              <mat-card-header> </mat-card-header>
+              <mat-card-content>
+                <img src="/assets/image/Laptop.jpg" />
+                <p>
+                  Brand: {{ laptopArray.brand }}, Price:
+                  {{ laptopArray.price }},Processor:{{ laptopArray.processor }}
+                </p>
+                <p>
+                  Memeory: {{ laptopArray.memory }}, Screen Size:
+                  {{ laptopArray.screenSize }}, Graphices:
+                  {{ laptopArray.graphices }}
+                </p>
+                <p>Details: {{ laptopArray.details }}</p>
+
+               
+                <button
+                  mat-raised-button
+                  (click)="buyLaptop(laptopArray)"
+                  color="primary"
+                >
+                  <mat-icon>done</mat-icon> Buy Now
+                </button>
+              </mat-card-content>
+            </mat-card>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </mat-drawer-container>
+</div>
+-->

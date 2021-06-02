@@ -1,0 +1,104 @@
+<br />
+<div class="show-Details">
+  <!--<button mat-raised-button (click)="show()" color="primary">
+    <mat-icon>home</mat-icon> Home
+  </button>-->
+</div>
+<mat-card class="card" layout-align=" center">
+<div style="text-align: center">
+   <div class="container row">
+  <!--  <img  src="imagePath" />
+    <mat-icon *ngIf="imageButton"
+      (click)="getImageDetails(customer.id)"
+      style="align-items: left"
+      >collections</mat-icon
+    > -->
+
+    <div id="TestsDiv" >
+      <img [src]="[retrievedImage]" alt="image" style="width: 150px" />
+      
+    </div>
+    <button  mat-raised-button (click)="imageAdd(customer.id)" color="primary">
+      <mat-icon>add_a_photo</mat-icon>&nbsp; Change Profile Picture
+    </button>
+  </div>
+  <br/>
+  <h2>Name : {{ customer.firstName }}  {{ customer.lastName }}</h2>
+ 
+  <h2>Email Id : {{ customer.emailId }}</h2>
+ 
+  <div *ngIf="addSignInData">
+    <button mat-raised-button (click)="SignInData(customer.id)" color="primary">
+      <mat-icon>cloud_upload</mat-icon>Upload Detail</button>
+    </div>
+
+  <div *ngIf="updateRow">
+    <h2>Mobile Number:{{ customer.mobileNumber }} </h2>
+   <button mat-raised-button (click)="updateNumber(customer.id)" color="primary">
+    <mat-icon>edit</mat-icon>Update MobileNumber</button
+  >&nbsp;&nbsp;&nbsp;
+ 
+</div>
+</div>
+
+<!--<div *ngFor="let addressData of customer.address">
+   
+<div style="text-align: right;">
+<button *ngIf="updateRow" mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu1="matMenu">
+  <button mat-menu-item (click)="remove(addressData.addressid)">
+    <span>remove</span>
+  </button>
+  <button mat-menu-item (click)="updateAddAddress(addressData.addressid)">
+    <span>update</span>
+  </button>
+</mat-menu>
+</div>
+<div *ngIf="updateRow" style="text-align: center;"><h2>Address Detail:</h2>
+<h2>{{ addressData.addressDetails }}{{ addressData.city }} 
+  {{ addressData.state }} {{ addressData.pincode }} </h2>
+</div>
+</div>-->
+
+<br/>
+<div *ngIf="updateRowData1"  style="text-align: center;">
+  <h2>Address Detail:</h2>
+  </div>
+<div *ngFor="let addressData of customer.address"  style="text-align: center;">
+  
+  <div *ngIf="updateRow" > 
+      <table class="sample-full-width" cellspacing="0">
+        <tr>
+          <td>
+
+      <span  style="align-items: center;font-size: larger;">{{ addressData.addressDetails }}, {{ addressData.city }} 
+    {{ addressData.state}}, {{ addressData.pincode }} </span>
+      <button *ngIf="updateRow"  style="text-align: left; " mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item (click)="remove(addressData.addressid)">
+          <span>remove</span>
+        </button>
+        <button mat-menu-item (click)="updateAddAddress(addressData.addressid)">
+          <span>update</span>
+        </button>
+      </mat-menu>
+    </td>
+    </tr>
+    </table>
+  
+  </div>
+ 
+  </div>
+
+<br/><br/>
+<div style="text-align: center">
+<button mat-raised-button (click)="addAddress()" color="primary" >
+  <mat-icon>add</mat-icon> Add Address</button
+>
+</div>
+
+</mat-card>

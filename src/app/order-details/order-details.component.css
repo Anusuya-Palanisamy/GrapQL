@@ -1,0 +1,13 @@
+[hidden] {
+  display: none !important;
+}
+.show-Details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+ngb-rating {
+  color: #ffc107;
+  font-size: 40px;
+}

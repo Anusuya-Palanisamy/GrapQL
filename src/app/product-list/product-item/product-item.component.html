@@ -1,0 +1,64 @@
+<div class="card mb-4 shadow-sm">
+    <mat-card class="card"  >
+               
+        <mat-card-content>
+            <div style="align-items: left ;">
+    <i *ngIf="addedWishlist" class="fas fa-heart float-right" (click)="remwish(productItem.id)"></i>
+    <i *ngIf="!addedWishlist" class="far fa-heart float-right"  (click)="addWishList(productItem)"></i>
+</div>
+   
+                  <img class="itemIm"src="/assets/image/laptop1.jpg"  />
+                  
+                  <p>
+                    Brand: {{ productItem.brand }},Processor:{{
+                        productItem.processor
+                    }}
+                  </p>
+
+                  <p>
+                    Memeory: {{ productItem.memory }}, Screen Size:
+                    {{ productItem.screenSize }}, Graphices:
+                    {{ productItem.graphices }}
+                  </p>
+                  <p> Price:₹
+                    {{ productItem.price }}.00</p>
+                  <p>
+                    Details: {{ productItem.details }}
+                  </p>
+                  <p>
+                    Rating: {{ productItem.productRating }}
+                  </p>
+                  <div class="review">
+                  <p class="review-rating" *ngIf="productItem.productRating">
+                    <!-- 1 star  -->
+                    <i [class]="(productItem.productRating == 0) ? 'far fa-star' : (productItem.productRating > 0 && productItem.productRating < 1) ? 'fas fa-star-half-alt' : 'fas fa-star'"></i>
+                
+                    <!-- 2 star  -->
+                    <i [class]="(productItem.productRating > 1 && productItem.productRating < 2) ? 'fas fa-star-half-alt' : (productItem.productRating >= 2) ? 'fas fa-star' : 'far fa-star'"></i>
+                
+                    <!-- 3 star  -->
+                    <i [class]="(productItem.productRating > 2 && productItem.productRating < 3) ? 'fas fa-star-half-alt' : (productItem.productRating >= 3) ? 'fas fa-star' : 'far fa-star'"></i>
+                
+                    <!-- 4 star  -->
+                    <i [class]="(productItem.productRating > 3 && productItem.productRating < 4) ? 'fas fa-star-half-alt' : (productItem.productRating >= 4) ? 'fas fa-star' : 'far fa-star'"></i>
+                
+                    <!-- 5 star  -->
+                    <i [class]="(productItem.productRating > 4 && productItem.productRating < 5) ? 'fas fa-star-half-alt' : (productItem.productRating >= 5) ? 'fas fa-star' : 'far fa-star'"></i> 
+                  </p>
+
+                </div> 
+    <button *ngIf="!addcartList"  mat-raised-button (click)="addCart(productItem)"> <mat-icon>add_shopping_cart</mat-icon>Add to Cart</button>
+    <button  mat-raised-button *ngIf="addcartList" style="color: blue;"  (click)="remCart(productItem.id)"> <mat-icon>add_shopping_cart</mat-icon>Go to Cart</button>
+                    &nbsp;&nbsp;
+                
+                  <button
+                    mat-raised-button
+                    (click)="buyLaptop(productItem.id)"
+                    color="primary"
+                  >
+                    <mat-icon>done</mat-icon> Buy Now
+                  </button>
+                  </mat-card-content>
+                  </mat-card>
+                  <br/> <br/> <br/>
+</div>

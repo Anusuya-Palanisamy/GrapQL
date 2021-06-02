@@ -1,0 +1,22 @@
+.spacer {
+  flex: 1 1 auto;
+}
+#sect1 {
+  height: 140%;
+  /* color: #fff;*/
+  background-image: url("/assets/image/shop2.jpg");
+  background-size: 100%;
+  background-size: cover;
+  width: 100%;
+}
+
+.eexample-sidenav-home {
+  background-color: white;
+  height: 40%;
+  width: 70%;
+}
+.example-sidenav-home1 {
+  background-color: white;
+  height: 100%;
+  width: 20%;
+}

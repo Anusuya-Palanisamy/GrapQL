@@ -1,0 +1,67 @@
+<div class="main-div">
+  <mat-card class="sample-card" layout-align="center center">
+    <br/>
+    <mat-card-header>
+      
+      <mat-card-title class="cart-col">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ADMIN SIGN IN</mat-card-title>
+    
+    </mat-card-header>
+
+    <div  style="color: green;text-align: center;"><h3 *ngIf="correct">Sign In Sucessfully!</h3></div>
+    <div  style="color:red;text-align: center;"><h3 *ngIf="wrong" >Incorrect EmailId and Password!</h3></div>
+    <br>
+
+    <mat-card-content>
+      <form class="sample-form" [formGroup]="formLogin">
+        <table class="sample-full-width" Style="text-align:center;" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="UserName"
+                  formControlName="username"
+                  name="username"
+                  required
+                />
+                <mat-error *ngIf="formLogin.invalid"
+                  >Please Enter valid Pattern</mat-error
+                >
+                <mat-icon matSuffix>mail</mat-icon>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-pass-toggle-visibility
+                  matSuffix
+                ></mat-pass-toggle-visibility>
+                <input
+                  matInput
+                  placeholder="Password"
+                  formControlName="password"
+                  type="password"
+                  name="password"
+                  required
+                /><mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions Style="text-align:center;">
+      <button
+        mat-raised-button
+        (click)="login()"
+        [disabled]="!formLogin.valid" 
+        color="primary"
+      >
+        Login
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,86 @@
+<div class="main-div">
+  <mat-card class="sample-card" layout-align="center center">
+    <br/>
+    <mat-card-header>
+      
+      <mat-card-title class="cart-con">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SIGN IN</mat-card-title>
+    
+    </mat-card-header>
+   
+    <p>&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Have a Account? Sign In</p>
+    <div  style="color: green;text-align: center;"><h3 *ngIf="correct">Sign In Sucessfully!</h3></div>
+    <div  style="color:red;text-align: center;"><h3 *ngIf="wrong" >Incorrect EmailId and Password!</h3></div>
+    <br>
+    
+    
+    <mat-card-content >
+      <form class="sample-form" [formGroup]="formCustomerLogin">
+        <table class="sample-full-width" Style="text-align:center;" cellspacing="0">
+          <tr>
+            <td>
+              
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="EmailID"
+                  formControlName="emailId"
+                  name="emailId"
+                  required
+                />
+                <mat-error *ngIf="formCustomerLogin.invalid"
+                  >Please Enter valid Pattern</mat-error
+                >
+                <mat-icon matSuffix>mail</mat-icon>
+              </mat-form-field>
+              
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-pass-toggle-visibility
+                  matSuffix
+                ></mat-pass-toggle-visibility>
+                <input
+                  matInput
+                  placeholder="Password"
+                  formControlName="password"
+                  name="password"
+                  type="password"
+                  required
+                  
+                /> <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+             
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions Style="text-align:center;">
+     
+      <button style="box-sizing: border-box;"
+        mat-raised-button
+        (click)="loginCustomer(formCustomerLogin.value.emailId)"
+        [disabled]="!formCustomerLogin.valid"
+        color="primary"
+      >
+        SIGN IN
+    </button>
+ 
+  </mat-card-actions>
+
+    <div  Style="text-align:center;">
+    <p>Create a new account? <a routerLink="/add-customer" Style="color: red;" class="btn btn-link">Sign Up</a></p>
+    </div>
+      <br/><br>
+
+   <div  Style="text-align:center;">
+    <p>Or Via Social Account?</p>
+    <button  mat-raised-button (click)="SignIn('Google')" color="primary"> <mat-icon>mail</mat-icon>Sigin with Gmail</button>
+  </div>
+   
+  </mat-card>
+</div>

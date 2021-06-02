@@ -1,0 +1,15 @@
+.fa-heart {
+  color: palevioletred;
+  cursor: pointer;
+  size: 0pc;
+}
+
+.card {
+  width: 80%;
+  height: 50%;
+  align-items: center;
+}
+
+.itemIm {
+  border-image-width: 20%;
+}

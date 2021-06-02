@@ -1,0 +1,135 @@
+<div style="background-color: white; height: 200%;" >
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Address</ng-template>
+    <br />
+
+    <div  style="text-align: left; ">
+      <h2> {{ customer.firstName }}  {{ customer.lastName }}</h2>
+
+      <div *ngIf="addSignInData">
+        <button mat-raised-button (click)="SignInData(customer.id)" color="primary">
+          <mat-icon>cloud_upload</mat-icon>Upload Detail</button>
+        </div>
+    
+     
+        <div *ngIf="updateRow">
+          <h2>Mobile Number:{{ customer.mobileNumber }} </h2>
+         <button mat-raised-button (click)="updateNumber(customer.id)" color="primary">
+          <mat-icon>edit</mat-icon>Update MobileNumber</button
+        >&nbsp;&nbsp;&nbsp;
+  
+</div>
+</div>
+<br/><br/>
+
+<div *ngIf="updateRowData1" >
+<h2>Select Your Address:</h2>
+</div>
+
+<div *ngFor="let addressData of customer.address"  style="text-align: center;">
+  
+  <div *ngIf="updateRow"  style="text-align: left; "> 
+    <form class="sample-form"  [formGroup]="form">
+      <table class="sample-full-width" cellspacing="0">
+        <tr>
+          <td>
+          <mat-radio-group formControlName="address" required>
+ 
+      <mat-radio-button [value]="addressData"> <span style="font-size: medium;">{{ addressData.addressDetails }}{{ addressData.city }} 
+    {{ addressData.state }} {{ addressData.pincode }} </span></mat-radio-button> 
+    </mat-radio-group>
+
+      <button *ngIf="updateRow" mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item (click)="remove(addressData.addressid)">
+          <span>remove</span>
+        </button>
+        <button mat-menu-item (click)="updateAddAddress(addressData.addressid)">
+          <span>update</span>
+        </button>
+      </mat-menu>
+    </td>
+    </tr>
+    </table>
+  </form>
+  </div>
+ 
+  </div>
+
+
+<div >
+<button mat-raised-button (click)="addAddress()" color="primary" >
+  <mat-icon>add</mat-icon> Add Address</button
+> &nbsp;&nbsp;
+<button mat-raised-button matStepperNext color="primary">Continue</button>
+</div>
+     
+    
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Product Details</ng-template>
+    <div *ngFor="let Laptop of laptop" style="text-align: left; color:blue;">
+      <img src="/assets/image/laptop1.jpg" />
+      <p>
+        Brand: {{ Laptop.brand }}, Price: {{ Laptop.price }},Processor:{{
+          Laptop.processor
+        }}
+      </p>
+      <p>
+        Memeory: {{ Laptop.memory }}, Screen Size: {{ Laptop.screenSize }},
+        Graphices: {{ Laptop.graphices }}
+      </p>
+      <p>Details: {{ Laptop.details }}</p>
+
+      <div>
+
+      <button mat-raised-button matStepperPrevious color="primary">Back</button
+      >&nbsp;
+      <button
+        mat-raised-button
+        matStepperNext
+        (click)="addOrder(Laptop)"
+        color="primary"
+      >
+        Continue
+      </button>
+    </div>
+  </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Payment</ng-template>
+<div style="text-align: left; color:blue;">
+    <p>Suggested for you!</p>
+
+    <mat-radio-group
+      (click)="outboundClick = !outboundClick"
+      aria-label="Select an option"
+      required
+    >
+      <mat-radio-button value="Cash on Delivery"
+        >Cash on Delivery</mat-radio-button
+      >
+    </mat-radio-group>
+  </div>
+    <br /><br />
+    <div>
+      <button mat-raised-button matStepperPrevious color="primary">Back</button
+      >&nbsp;
+      <button mat-raised-button (click)="stepper.reset()" color="primary">
+        &nbsp; Reset</button
+      >&nbsp;
+      <button
+        mat-raised-button
+        color="primary"
+        
+        (click)="conform()"
+      >
+        Submit
+      </button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+</div>

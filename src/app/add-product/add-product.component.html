@@ -1,0 +1,39 @@
+<br />
+<p style="color: white">ID : {{ localValue }}</p>
+<h2 style="text-align: center;color:white">Welcome Admin!</h2>
+
+<button mat-icon-button [matMenuTriggerFor]="menuAdmin" style="color: white" aria-label="Example icon-button with a menu">
+  <mat-icon>menu</mat-icon>
+  <span>Menu</span>
+</button>
+<mat-menu #menuAdmin="matMenu">
+  <button mat-menu-item (click)="laptoplist()">
+    <mat-icon>list</mat-icon>
+    <span>View-laptop List</span>
+  </button>
+  <button mat-menu-item (click)="customerlist()">
+    <mat-icon>list</mat-icon>
+    <span>View-Customer List</span>
+  </button>
+  <button mat-menu-item (click)="addLaptop()">
+    <mat-icon>library_add</mat-icon>
+    <span>Add-Laptop List</span>
+  </button>
+ 
+</mat-menu>
+
+<div class="customerDetails">
+  <br />
+  <h2 style="text-align: center; color: blue">Laptop Details!</h2>
+<br /><br />
+<div>
+    <table>
+      <tr *ngFor="let Laptop1 of laptopList">
+        <th *ngFor="let product of Laptop1">
+            <app-add-product-list [productItem]="product" ></app-add-product-list>
+            </th>
+            </tr>
+            </table>
+            </div>
+            </div>
+            

@@ -1,0 +1,79 @@
+<div  style="text-align: right;" ><span class="material-icons"(click)="onNoClick()">
+  clear
+  </span>
+</div>
+<h1 mat-dialog-title style="color: red;text-align: center;">Update Details:</h1>
+<div  style="color:green;text-align: center;"><h3 *ngIf="correct">User Details updated Sucessfully!</h3></div>
+<div  style="color:red;text-align: center;"><h3 *ngIf="wrong" >Not Added User Details!</h3></div>
+
+<div mat-dialog-content Style="text-align:center;" >
+  <form class="sample-form" [formGroup]="formDetails">
+   
+
+    
+<br/>
+    <mat-form-field>
+      <mat-label>Street Address</mat-label>
+      <textarea
+        matInput
+        placeholder=""
+        formControlName="addressDetails"
+        required
+      >
+      </textarea>
+    </mat-form-field>
+
+    <br/>
+
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input
+        matInput
+        placeholder=""
+        formControlName="city"
+      
+        required
+      />
+    </mat-form-field>
+
+   <br/>
+
+        <mat-form-field>
+          <mat-label>State</mat-label>
+          <mat-select formControlName="">
+            <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+            <mat-option value="Assam">Assam</mat-option>
+            <mat-option value="Andhra Pradesh"
+              >Andhra Pradesh</mat-option
+            >
+            <mat-option value="Goa">Goa</mat-option>
+            <mat-option value="Himachal Pradesh"
+              >Himachal Pradesh</mat-option
+            >
+            <mat-option value="Jammu and Kashmir"
+              >Jammu and Kashmir</mat-option
+            >
+            <mat-option value="Kerala">Kerala</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br/>
+
+    <mat-form-field>
+      <mat-label>Pincode</mat-label>
+      <input
+        matInput
+        placeholder=""
+        formControlName="pincode"
+        (keypress)=_keynumPress($event)
+        required
+      />
+    </mat-form-field>
+  </form>
+</div>
+<br />
+<div mat-dialog-action Style="text-align:center;">
+  <button mat-raised-button (click)="updateName()" color="primary">
+    Change</button
+  >
+</div>

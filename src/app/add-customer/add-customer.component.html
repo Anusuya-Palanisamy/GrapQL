@@ -1,0 +1,243 @@
+<br />
+<div class="main-outer">
+<div class="main-div">
+ 
+  <mat-card class="card" layout-align="center center">
+   
+      <div style="text-align: center;"> 
+        <h2 style="color: red;">SIGN UP</h2>
+        
+    
+    <p>Create a account on Shop</p>
+  </div>
+  <div  style="color:green;text-align: center;"><h3 *ngIf="correct">Account Created Sucessfully!</h3></div>
+ 
+
+    <mat-card-content  >
+      <div  >
+      <form class="sample-form"  [formGroup]="form">
+        <table class="sample-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="First Name"
+                  formControlName="firstName"
+                  name="firstName" (keypress)=_keystrPress($event)
+                  required
+                />
+               
+                <mat-error *ngIf="form.invalid"
+                  >Please Enter your First Name</mat-error
+                >
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Last Name"
+                  formControlName="lastName"
+                  name="lastName" (keypress)=_keystrPress($event)
+                  required
+                />
+                
+                <mat-error *ngIf="form.invalid"
+                  >Please Enter your Last Name</mat-error
+                >
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <input
+                  matInput 
+                  placeholder="EmailId"
+                  formControlName="emailId"
+                  #emailId
+                  (keypress)="emailCheckUnique()"
+                 
+                  name="emailId"
+                  required
+                />
+               
+                <mat-error *ngIf="form.controls['emailId'].invalid"
+                  >
+                  <div *ngIf="invalidData">Please Enter valid Pattern </div></mat-error
+                >
+             
+                
+                <mat-error *ngIf="emailAlredyExist != ''" class="alert alert-danger">
+                  {{emailAlredyExist}} 
+                </mat-error>  
+                 <mat-icon matSuffix>mail</mat-icon>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-pass-toggle-visibility
+                  matSuffix
+                ></mat-pass-toggle-visibility>
+                <input
+                  matInput
+                  placeholder="Password"
+                  formControlName="password"
+                  type="password"
+                  name="password"
+                  required
+                /><mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+            </td>
+          </tr>
+         
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Mobile number</mat-label>
+                <input
+                  matInput
+                  formControlName="mobileNumber"
+                  placeholder="- - -"
+                  type="text" (keypress)=_keynumPress($event)
+                  required
+                />
+                <mat-icon matSuffix>cell</mat-icon>
+                <mat-hint>Include area code</mat-hint>
+              </mat-form-field>
+          
+        </td>
+      </tr>
+
+          <br />
+          <tr>
+            <td>
+              <!--<mat-label style="align-items: left;">Select Gender:</mat-label>
+              <br/><br/>-->
+              <mat-radio-group formControlName="gender" required>
+                <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;
+                <mat-radio-button value="Female">Female</mat-radio-button>&nbsp;
+                <mat-radio-button value="Others">Others</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </tr>
+          <tr>
+<div  Style="text-align:center;">
+            <div formGroupName="address" >
+             
+              <tr>
+                <td>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                  <mat-form-field  >
+                    <mat-label>Street Address</mat-label>
+                    <textarea
+                      matInput
+                     
+                      formControlName="addressDetails"
+                      required
+                    >
+                    </textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                
+                  <mat-form-field>
+                    <input
+                      matInput
+                      formControlName="city"
+                      placeholder="city"
+                      name="city"
+                      required
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                
+                  <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <mat-select formControlName="state">
+                      <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+                      <mat-option value="Assam">Assam</mat-option>
+                      <mat-option value="Andhra Pradesh"
+                        >Andhra Pradesh</mat-option
+                      >
+                      <mat-option value="Goa">Goa</mat-option>
+                      <mat-option value="Himachal Pradesh"
+                        >Himachal Pradesh</mat-option
+                      >
+                      <mat-option value="Jammu and Kashmir"
+                        >Jammu and Kashmir</mat-option
+                      >
+                      <mat-option value="Kerala">Kerala</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
+                  
+              <tr>
+                <td>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                
+                  <mat-form-field>
+                    <mat-label>Pincode</mat-label>
+                    <input
+                      matInput
+                      type="text"
+                      placeholder="pincode"
+                      formControlName="pincode" (keypress)=_keynumPress($event)
+                      required
+                    />
+                    <mat-hint align="start">Must be 6 numbers!</mat-hint>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </div>
+          </div>
+          </tr>
+        </table>
+      </form>
+    </div>
+    </mat-card-content>
+
+    <mat-card-actions Style="text-align:center;" >
+      <button
+        mat-raised-button
+        (click)="addCustomer()"
+        [disabled]="!form.valid"
+        color="primary"
+      >
+        Register</button
+      >
+     
+    </mat-card-actions>
+    <div  Style="text-align:center;">
+      <p> Have a Account? <a routerLink="/customer-login" Style="color: red;" class="btn btn-link">Sign In</a></p>
+   </div>  
+   
+    <br>
+
+   <div  Style="text-align:center;">
+    <p>Or Via Social Account?</p>
+    <button  mat-raised-button (click)="SignIn('Google')" color="primary"> <mat-icon>mail</mat-icon>Sigin with Gmail</button>
+  </div>
+  </mat-card>
+</div>
+</div>

@@ -1,0 +1,13 @@
+.example-sidenav {
+  width: 20%;
+  height: 100%;
+}
+.wrapper {
+  width: 100%;
+  height: 100vh;
+}
+.no_data {
+  text-align: center;
+  color: blueviolet;
+  text-decoration-thickness: 50%;
+}

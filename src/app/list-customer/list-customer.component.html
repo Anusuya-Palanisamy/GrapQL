@@ -1,0 +1,157 @@
+<br />
+<p style="color: white">ID : {{ localValue }}</p>
+<h2 style="text-align: center;color:white">Welcome Admin!</h2>
+
+<button mat-icon-button [matMenuTriggerFor]="menuAdmin" style="color: white" aria-label="Example icon-button with a menu">
+  <mat-icon>menu</mat-icon>
+  <span>Menu</span>
+</button>
+<mat-menu #menuAdmin="matMenu">
+  <button mat-menu-item (click)="laptoplist()">
+    <mat-icon>list</mat-icon>
+    <span>View-laptop List</span>
+  </button>
+  <button mat-menu-item (click)="customerlist()">
+    <mat-icon>list</mat-icon>
+    <span>View-Customer List</span>
+  </button>
+  <button mat-menu-item (click)="addLaptop()">
+    <mat-icon>library_add</mat-icon>
+    <span>Add-Laptop List</span>
+  </button>
+ 
+</mat-menu>
+
+<div class="wrapper">
+  <br />
+  <h2 style="text-align: center; color: blue">Customer Details!</h2>
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <form class="sample-form" [formGroup]="formData">
+        <h2 class="example-h2">List Of Categeries</h2>
+
+        <h2 class="example-h2">Gender:</h2>
+        <mat-radio-group formControlName="gender" aria-label="Select an option">
+          <br />
+          <mat-radio-button value="Male">Male</mat-radio-button><br /><br />
+          <mat-radio-button value="Female">Female</mat-radio-button><br /><br />
+          <mat-radio-button value="Others"
+            >Others</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+        <div formGroupName="address">
+          <h2 class="example-h2">State:</h2>
+          <mat-select
+            formControlName="state"
+            placeholder="--Select the State--"
+          >
+            <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+            <mat-option value="Assam">Assam</mat-option>
+            <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+            <mat-option value="Goa">Goa</mat-option>
+            <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+            <mat-option value="Jammu and Kashmir">Jammu and Kashmir</mat-option>
+            <mat-option value="Kerala">Kerala</mat-option> </mat-select
+          ><br /><br />
+        </div>
+      </form>
+
+      <button mat-raised-button color="primary" (click)="filterDataValue()">
+        Filter
+      </button>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <button mat-raised-button (click)="drawer.toggle()" color="primary">
+        <mat-icon>filter_list</mat-icon> Filter</button
+      ><br />
+      <br />
+    </div>
+
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      #mytable
+      matSort
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>S.No</th>
+        <td mat-cell *matCellDef="let customer; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>User ID</th>
+        <td mat-cell *matCellDef="let customer">{{ customer.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let customer">{{ customer.firstName }}  {{ customer.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email Id</th>
+        <td mat-cell *matCellDef="let customer">{{ customer.emailId }}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="mobileNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Contact Number
+        </th>
+        <td mat-cell *matCellDef="let customer">{{ customer.mobileNumber }}</td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+        <td mat-cell *matCellDef="let customer">{{ customer.gender }}</td>
+      </ng-container>
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Address Details
+        </th>
+        <td mat-cell *matCellDef="let customer">
+          {{ customer.address.addressDetails }},{{ customer.address.city }},
+          {{ customer.address.state }},{{ customer.address.pincode }}
+          <br/>{{ customer.addAddress }}
+        </td>
+      </ng-container>
+
+      <!--<ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let customer">
+          <button
+            mat-raised-button
+            (click)="deleteUser(customer)"
+            color="primary"
+          >
+            <mat-icon>delete</mat-icon>Delete</button
+          >&nbsp;
+          <button
+            mat-raised-button
+            (click)="update(customer.id)"
+            color="primary"
+          >
+            <mat-icon>edit</mat-icon> Update
+          </button>
+        </td> </ng-container
+      >-->
+      <tr></tr>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns; let i = index"
+      ></tr>
+    </table>
+    <br />
+
+    <div *ngIf="dataSource.data.length === 0" class="no_data">
+      --No data Found--
+    </div>
+
+    <mat-paginator [length]="5" [pageSize]="3" [pageSizeOptions]="[5, 10, 25]">
+    </mat-paginator>
+    &nbsp;
+  </mat-drawer-container>
+</div>

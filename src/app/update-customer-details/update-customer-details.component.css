@@ -1,0 +1,10 @@
+img {
+  border-radius: 50%;
+}
+.card {
+  /*background-color: rgba(245, 246, 252, 0.781);*/
+  margin: 0 auto;
+  align-items: left;
+  width: 50%;
+  height: 25;
+}

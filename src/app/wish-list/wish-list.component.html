@@ -1,0 +1,90 @@
+<div style="background-color: white; height: 200%;" ><br>
+
+<div class="show" style="text-align: left;">
+  <!--<button mat-raised-button (click)="show()" color="primary">
+    <mat-icon>home</mat-icon> Home
+  </button>-->
+</div>
+<br>
+
+<!--<a mat-raised-button (click)="signOut()" color="primary"
+  ><mat-icon>power_settings_new</mat-icon> Logout</a
+>-->
+<!--<p style="color:blue">ID : {{ localValue }}</p>-->
+<br />
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 style="text-align: center; color: blue">My Wishlist</h2>
+  </div>
+  <div  style="color:green;text-align: center;"><h3 *ngIf="correct">Item Shoud be removed from tour wishlist!</h3></div>
+ 
+  <div class="panel-body">
+    <div [hidden]="showItem">
+      <br />
+      <h2 style="text-align: center; color: Red">{{ value }}</h2>
+
+      <div class="show-Details">
+        <button mat-raised-button (click)="show()" color="primary">
+          Continue to Shop... 
+        </button>
+      </div>
+    </div>
+    <br /><br />
+
+    <table>
+      <tr *ngFor="let item of newItemList">
+        <th *ngFor="let laptopArray of item">
+          <mat-card class="card">
+            <mat-card-header> </mat-card-header>
+            <mat-card-content>
+              <img src="/assets/image/laptop1.jpg" />
+              <p>
+                Brand: {{ laptopArray.brand }}, Price:₹
+                {{ laptopArray.price }}.00, Processor:{{
+                  laptopArray.processor
+                }}
+              </p>
+
+              <p>
+                Memeory: {{ laptopArray.memory }}, Screen Size:
+                {{ laptopArray.screenSize }}, Graphices:
+                {{ laptopArray.graphices }}
+              </p>
+              <p>Details: {{ laptopArray.details }}</p>
+              <button
+                mat-raised-button
+                (click)="checkout(laptopArray.id)"
+                class="btn btn-primary btn-lg"
+                color="primary"
+              >
+                <mat-icon>done</mat-icon> Buy Now
+              </button>
+              &nbsp; &nbsp; &nbsp;
+              <button
+                mat-raised-button
+                (click)="remwish(laptopArray.id)"
+                color="primary"
+              >
+                Remove
+              </button>
+            </mat-card-content>
+          </mat-card>
+        </th>
+      </tr>
+    </table>
+
+    <div>
+      <!--<button
+        mat-raised-button
+        (click)="reload()"
+        class="btn btn-primary btn-lg"
+        style="margin-left: 10px"
+        color="primary"
+      >
+        Reload
+      </button>-->
+    </div>
+  </div>
+</div>
+</div>

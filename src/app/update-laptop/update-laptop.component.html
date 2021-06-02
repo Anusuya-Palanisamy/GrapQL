@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Update Customer Detail</h1>
+<div mat-dialog-content>
+  <form class="sample-form" [formGroup]="formDetails">
+    <!-- <mat-form-field>
+      <mat-label>Enter Laptop ID:</mat-label>
+      <input matInput formControlName="id" placeholder="id" required />
+    </mat-form-field>-->
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" placeholder="price" required />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="updatePrice()">
+    Change
+  </button>
+  <button mat-raised-button color="primary" (click)="onNoClick()">Close</button>
+</div>

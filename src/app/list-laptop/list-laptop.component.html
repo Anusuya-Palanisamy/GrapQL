@@ -1,0 +1,178 @@
+<br />
+<p style="color: white">ID : {{ localValue }}</p>
+<h2 style="text-align: center;color:white">Welcome Admin!</h2>
+
+<button mat-icon-button [matMenuTriggerFor]="menuAdmin" style="color: white" aria-label="Example icon-button with a menu">
+  <mat-icon>menu</mat-icon>
+  <span>Menu</span>
+</button>
+<mat-menu #menuAdmin="matMenu">
+  <button mat-menu-item (click)="laptoplist()">
+    <mat-icon>list</mat-icon>
+    <span>View-laptop List</span>
+  </button>
+  <button mat-menu-item (click)="customerlist()">
+    <mat-icon>list</mat-icon>
+    <span>View-Customer List</span>
+  </button>
+  <button mat-menu-item (click)="addLaptop()">
+    <mat-icon>library_add</mat-icon>
+    <span>Add-Laptop List</span>
+  </button>
+ 
+</mat-menu>
+
+<div class="customerDetails">
+  <br />
+  <h2 style="text-align: center; color: blue">Laptop Details!</h2>
+<br /><br />
+
+  <mat-drawer-container class="example-container" autosize>
+    <!--<mat-drawer #drawer class="example-sidenav" mode="side">
+      <form class="sample-form" [formGroup]="formData">
+        <h2 class="example-h2">List Of Categeries</h2>
+
+        <h2 class="example-h2">Brand:</h2>
+
+        <mat-radio-group formControlName="brand" aria-label="Select an option">
+          <mat-radio-button value="Hp">Hp</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel</mat-radio-button><br /><br />
+          <mat-radio-button value="Dell">Dell</mat-radio-button><br /><br />
+          <mat-radio-button value="Lenovo"
+            >Lenovo</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+
+        <h2 class="example-h2">Processor:</h2>
+        <mat-radio-group
+          formControlName="processor"
+          aria-label="Select an option"
+        >
+          <br />
+          <mat-radio-button value="AMD">AMD</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel Core i7</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="Intel">Intel Core i3</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="NVIDIA">NVIDIA</mat-radio-button><br /><br />
+          <mat-radio-button value="Qualcomm™ Adreno 504"
+            >Qualcomm™ Adreno 504</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+
+        <h2 class="example-h2">memory:</h2>
+        <mat-radio-group
+          formControlName="memory"
+          placeholder="--Select the State--"
+        >
+          <mat-radio-button value="16 GB">16 GB</mat-radio-button>
+          <mat-radio-button value="8 GB">8 GB</mat-radio-button>
+          <mat-radio-button value="4 GB">4 GB</mat-radio-button>
+          <mat-radio-button value="2 GB"
+            >2 GB</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+
+        <h2 class="example-h2">Screen Size:</h2>
+        <mat-radio-group
+          formControlName="screenSize"
+          placeholder="--Select the State--"
+        >
+          <mat-radio-button value="33.78cms">33.78cms</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="35.56cms">35.56cms</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="39.62cms">39.62cms</mat-radio-button
+          ><br /><br />
+          <mat-radio-button value="43.94cms">43.94cms</mat-radio-button
+          ><br /><br /> </mat-radio-group
+        ><br /><br />
+
+        <h2 class="example-h2">Graphices:</h2>
+        <mat-radio-group
+          formControlName="graphices"
+          placeholder="--Select the State--"
+        >
+          <br />
+          <mat-radio-button value="AMD">AMD</mat-radio-button><br /><br />
+          <mat-radio-button value="Intel">Intel</mat-radio-button><br /><br />
+          <mat-radio-button value="NVIDIA">NVIDIA</mat-radio-button><br /><br />
+          <mat-radio-button value="Qualcomm™ Adreno 504"
+            >Qualcomm™ Adreno 504</mat-radio-button
+          > </mat-radio-group
+        ><br /><br />
+      </form>
+
+      <button mat-raised-button (click)="filterDataLaptop()" color="primary">
+        Filter
+      </button>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <button mat-raised-button (click)="drawer.toggle()" color="primary">
+        <mat-icon>filter_list</mat-icon> Filter</button
+      >
+      <br />
+      <br />
+    </div>-->
+
+    <div>
+      <table>
+        <tr *ngFor="let Laptop1 of laptopList">
+          <th *ngFor="let laptopArray of Laptop1">
+            <mat-card class="card">
+              <mat-card-header> </mat-card-header>
+              <mat-card-content>
+                <!--<img src="/assets/image/Laptop.jpg" />-->
+                <mat-icon 
+      (click)="getImageDetails(laptopArray.id)"
+      style="align-items: left"
+      >collections</mat-icon
+    >
+
+    <div id="TestsDiv" *ngIf="retrievedImage">
+      <img [src]="[retrievedImage]" alt="image" style="width: 150px" />
+      
+    </div>
+                <p>
+                  Brand: {{ laptopArray.brand }}, Price:₹
+                  {{ laptopArray.price }}.00,Processor:{{
+                    laptopArray.processor
+                  }}
+                </p>
+                <p>
+                  Memeory: {{ laptopArray.memory }}, Screen Size:
+                  {{ laptopArray.screenSize }}, Graphices:
+                  {{ laptopArray.graphices }}
+                </p>
+                <p>
+                  Details: {{ laptopArray.details }}, Quantity :
+                  {{ laptopArray.quan }}
+                </p>
+
+                <!-- <button mat-raised-button  color="primary"><mat-icon>add_shopping_cart</mat-icon>
+        Add To Cart</button>&nbsp;&nbsp;-->
+
+                <button
+                  mat-raised-button
+                  (click)="updateLaptop(laptopArray.id)"
+                  color="primary"
+                >
+                  <mat-icon>edit</mat-icon> Update</button
+                >&nbsp;&nbsp;&nbsp;
+                <button
+                  mat-raised-button
+                  (click)="imageAdd(laptopArray.id)"
+                  color="primary"
+                >
+                  <mat-icon>add_to_photos</mat-icon> Add Image
+                </button>
+              </mat-card-content>
+            </mat-card>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </mat-drawer-container>
+</div>

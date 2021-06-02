@@ -1,0 +1,109 @@
+
+   <div  style="text-align: right;" ><span class="material-icons"(click)="onNoClick()">
+    clear
+    </span>
+  </div>
+        <div style="text-align: center;"> 
+         
+          <h3 mat-dialog-title style="color: red;">Add Details</h3>
+          
+        </div>
+        <div  style="color:green;text-align: center;"><h3 *ngIf="correct">User Details Added Sucessfully!</h3></div>
+        <div  style="color:red;text-align: center;"><h3 *ngIf="wrong" >Not Added User Details!</h3></div>
+
+        <div mat-dialog-content>      
+  <form class="sample-form"  Style="text-align:center;" [formGroup]="formDetails">
+    
+    <mat-label>Gender:</mat-label>&nbsp;
+    <mat-radio-group formControlName="gender" required>
+      <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;
+      <mat-radio-button value="Female">Female</mat-radio-button>&nbsp;
+      <mat-radio-button value="Others">Others</mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Phone number</mat-label>
+      <input
+        matInput
+        formControlName="mobileNumber"
+        placeholder="- - -"
+        type="text" (keypress)=_keynumPress($event)
+        required
+      />
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-hint>Include area code</mat-hint>
+    </mat-form-field>
+<br/>
+
+
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <textarea
+        matInput
+        placeholder="address"
+        formControlName="addressDetails"
+        required
+      >
+      </textarea>
+    </mat-form-field>
+
+    <br/>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="city"
+        formControlName="city"
+        name="city"
+        required
+      />
+    </mat-form-field>
+
+    <br/>
+
+
+    <mat-form-field>
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state">
+          <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+          <mat-option value="Assam">Assam</mat-option>
+          <mat-option value="Andhra Pradesh"
+            >Andhra Pradesh</mat-option
+          >
+          <mat-option value="Goa">Goa</mat-option>
+          <mat-option value="Himachal Pradesh"
+            >Himachal Pradesh</mat-option
+          >
+          <mat-option value="Jammu and Kashmir"
+            >Jammu and Kashmir</mat-option
+          >
+          <mat-option value="Kerala">Kerala</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br/>
+
+      <br/>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="pincode"
+        formControlName="pincode"
+        name="pincode" (keypress)=_keynumPress($event)
+        required
+      />
+    </mat-form-field>
+  </form>
+</div>
+
+<br />
+<div mat-dialog-action Style="text-align:center;" >
+
+  <button mat-raised-button (click)="uploadSignInDetails()" color="primary">
+    Add Details</button
+  >
+
+
+</div>

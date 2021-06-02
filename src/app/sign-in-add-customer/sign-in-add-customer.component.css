@@ -1,0 +1,23 @@
+.md-dialot {
+  background-color: #000;
+  width: 450px;
+  height: 100%;
+}
+.main-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-div {
+  height: 120vh;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+}
+.card {
+  /*background-color: rgba(245, 246, 252, 0.781);*/
+  margin: 0 auto;
+  width: 30%;
+  height: 60%;
+}

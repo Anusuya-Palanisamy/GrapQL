@@ -1,0 +1,74 @@
+<div id="sect1"class="container">
+<mat-toolbar style="background-color:midnightblue">
+  <mat-toolbar-row>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="homepage()">
+        <mat-icon>account_balance</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item (click)="accountDetails()">
+        <mat-icon>person</mat-icon>
+        <span>My Account</span>
+      </button>
+      <button mat-menu-item (click)="orders()">
+        <mat-icon>open_in_browser</mat-icon>
+        <span>Orders</span>
+      </button>
+      <button mat-menu-item (click)="myCart()">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>My Cart</span>
+      </button>
+      <button mat-menu-item (click)="showWishList()">
+        <mat-icon>favorite</mat-icon>
+        <span>wishlist</span>
+      </button>
+    </mat-menu>
+
+   
+    &nbsp; &nbsp; &nbsp; <p>Shop</p>
+
+    <span class="spacer"></span>
+    <h3 *ngIf=!correct>{{ localValue }}</h3>
+
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="Example icon-button with a menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+
+      <!--<button mat-menu-item routerLink="customer-login"routerLinkActive="active">
+        <span >SIGN IN</span>
+      </button>
+
+      <button mat-menu-item routerLink="add-customer"routerLinkActive="active" >
+        <span>SIGN UP</span>
+      </button>
+
+      <button mat-menu-item routerLink="admin-login" routerLinkActive="active" >
+        <span>Admin</span>
+      </button>-->
+     
+      <button mat-menu-item (click)="SignOut()">
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+
+    <!--<a mat-button 
+      ><mat-icon>account_circle</mat-icon>
+      
+      <mat-select>
+        
+        <mat-option routerLink="customer-login"routerLinkActive="active">SIGN IN</mat-option>
+        <mat-option routerLink="add-customer"routerLinkActive="active" >SIGN UP</mat-option>
+        <mat-option (click)="SignOut()" >Logout</mat-option>
+      </mat-select></a>-->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!--Its is used for Routing Host-->
+<router-outlet></router-outlet>
+</div>

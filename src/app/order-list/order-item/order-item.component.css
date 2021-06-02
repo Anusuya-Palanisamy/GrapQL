@@ -1,0 +1,39 @@
+.fa-star {
+  color: palevioletred;
+  cursor: pointer;
+  size: 0pc;
+}
+
+.review {
+  border-bottom: 1px solid rgba(120, 122, 124, 0.25);
+  padding: 1em 0.75em;
+}
+
+.review-rating {
+  font-size: 0.9em;
+  color: #c9002b;
+}
+
+.review-summary {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #555;
+}
+
+.review-feedback {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.reviewBy {
+  font-size: 0.85em;
+}
+
+.review-author {
+  color: #004b93;
+  font-weight: bold;
+}
+
+.review:last-child {
+  border: 0;
+}

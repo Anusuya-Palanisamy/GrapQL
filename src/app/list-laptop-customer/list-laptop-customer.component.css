@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.eexample-sidenav {
+  height: 40%;
+  width: 70%;
+}
+.example-sidenav-customer1 {
+  height: 100%;
+  width: 20%;
+}
+
+.fa-heart {
+  color: palevioletred;
+  cursor: pointer;
+}

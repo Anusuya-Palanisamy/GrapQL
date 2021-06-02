@@ -1,0 +1,172 @@
+
+   
+    <div  style="text-align: right;" ><span class="material-icons"(click)="dialogClear()">
+      clear
+      </span>
+    </div>
+    <h1 mat-dialog-title style="color: red;text-align: center;">Add product Details:</h1>
+    <div  style="color:green;text-align: center;"><h3 *ngIf="correct">Product Details Added Sucessfully!</h3></div>
+    <div  style="color:red;text-align: center;"><h3 *ngIf="wrong" >Not Upload Product Details!</h3></div>
+
+    
+<div mat-dialog-content Style="text-align:center;">
+      <form class="sample-form" [formGroup]="formLaptop">
+        <table class="sample-full-width" cellspacing="0">
+          <!--<tr>
+            <td>
+              
+          <mat-label>Select Image : </mat-label>
+      <br />
+      <br />
+      <input [writeFile]="true"
+        type="file"
+        id="uploadFile"
+        formControlName="image" 
+        (change)="uploadFileEvt($event)"
+        name="uploadfile"
+        accept="image/*"
+      />
+      <br/> <br/>
+      <mat-hint align="end">Maximum width-300 and Maximum height-250</mat-hint>
+     
+              </td>
+          </tr>-->
+      
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-select formControlName="brand" placeholder="brand">
+                  <mat-option value="Hp">Hp</mat-option>
+                  <mat-option value="Intel">Intel</mat-option>
+                  <mat-option value="Dell">Dell</mat-option>
+                  <mat-option value="Lenovo">Lenovo</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-select formControlName="processor" placeholder="processor">
+                  <mat-option value="AMD">AMD</mat-option>
+                  <mat-option value="Intel">Intel</mat-option>
+                  <mat-option value="NVIDIA">NVIDIA</mat-option>
+                  <mat-option value="Qualcomm™ Adreno 504"
+                    >Qualcomm™ Adreno 504</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="price"
+                  formControlName="price"
+                  name="price"
+                  required
+                />
+                <mat-error *ngIf="formLaptop.invalid"
+                  >Please Enter Price Value</mat-error
+                >
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-select formControlName="memory" placeholder="Memory">
+                  <mat-option value="16 GB">16 GB</mat-option>
+                  <mat-option value="8 GB">8 GB</mat-option>
+                  <mat-option value="4 GB">4 GB</mat-option>
+                  <mat-option value="2 GB">2 GB</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-select
+                  formControlName="screenSize"
+                  placeholder="Screen Size"
+                >
+                  <mat-option value="33.78cms">33.78cms</mat-option>
+                  <mat-option value="35.56cms">35.56cms</mat-option>
+                  <mat-option value="39.62cms">39.62cms</mat-option>
+                  <mat-option value="43.94cms">43.94cms</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-select formControlName="graphices" placeholder="graphices">
+                  <mat-option value="AMD">AMD</mat-option>
+                  <mat-option value="Intel">Intel</mat-option>
+                  <mat-option value="NVIDIA">NVIDIA</mat-option>
+                  <mat-option value="Qualcomm™ Adreno 504"
+                    >Qualcomm™ Adreno 504</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Details</mat-label>
+                <textarea
+                  matInput
+                  placeholder="details"
+                  formControlName="details"
+                  required
+                >
+                </textarea>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="quantity"
+                  formControlName="quan"
+                  name="quan"
+                  required
+                />
+                <mat-error *ngIf="formLaptop.invalid"
+                  >Please Enter quantity
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    
+   </div>
+
+   <div mat-dialog-action Style="text-align:center;">
+    <button
+      mat-raised-button
+      (click)="addLaptopDetails()"
+      [disabled]="!formLaptop.valid"
+      color="primary"
+    >
+      Submit
+    </button>
+ </div>
+
+ 
+

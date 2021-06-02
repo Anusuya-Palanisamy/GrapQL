@@ -1,0 +1,14 @@
+[hidden] {
+  display: none !important;
+}
+.show-Details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.card {
+  width: 60%;
+  height: 50%;
+  align-items: center;
+}

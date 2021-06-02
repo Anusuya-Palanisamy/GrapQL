@@ -1,0 +1,50 @@
+<mat-card class="card">
+    <mat-card-header> </mat-card-header>
+    <mat-card-content>
+      <!--<img src="/assets/image/Laptop.jpg" />-->
+      <mat-icon 
+(click)="getImageDetails(productItem.id)"
+style="align-items: left"
+>collections</mat-icon
+>
+
+<div id="TestsDiv" *ngIf="retrievedImage">
+<img [src]="[retrievedImage]" alt="image" style="width: 150px" />
+
+</div>
+      <p>
+        Brand: {{ productItem.brand }}</p>
+        <P> Price:₹
+            {{ productItem.price }}.00</P>
+            <p>Processor:{{
+                productItem.processor
+            }}</p>
+     
+      <p>
+        Memeory: {{ productItem.memory }}</p>
+        <p>Screen Size:
+            {{ productItem.screenSize }}</p>
+            <p>Graphices:
+                {{ productItem.graphices }}</p> 
+     
+      <p>
+        Details: {{ productItem.details }}</p>
+        <p>Quantity :
+            {{ productItem.quan }}</p> 
+    
+      <button
+        mat-raised-button
+        (click)="updateLaptop(productItem.id)"
+        color="primary"
+      >
+        <mat-icon>edit</mat-icon> Update</button
+      >&nbsp;&nbsp;&nbsp;
+      <button
+        mat-raised-button
+        (click)="imageAdd(productItem.id)"
+        color="primary"
+      >
+        <mat-icon>add_to_photos</mat-icon> Add Image
+      </button>
+    </mat-card-content>
+  </mat-card>

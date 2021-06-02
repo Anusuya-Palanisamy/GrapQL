@@ -1,0 +1,34 @@
+<div  style="text-align: right;" ><span class="material-icons"(click)="onNoClick()">
+    clear
+    </span>
+  </div>
+  <h1 mat-dialog-title style="color: red;text-align: center;">Mobile Number Update:</h1>
+  <div  style="color:green;text-align: center;"><h3 *ngIf="correct">User Mobile Number updated Sucessfully!</h3></div>
+  
+  
+  <div mat-dialog-content Style="text-align:center;" >
+    <form class="sample-form" [formGroup]="formNumber">   
+  
+        <mat-form-field>
+            <mat-label>Mobile number</mat-label>
+            <input
+              matInput
+              formControlName="mobileNumber"
+              placeholder="- - -"
+              type="text" (keypress)=_keynumPress($event)
+              required
+            />
+            <mat-icon matSuffix>cell</mat-icon>
+            <mat-hint>Include area code</mat-hint>
+          </mat-form-field>
+      
+ 
+    </form>
+  </div>
+  <br />
+  <div mat-dialog-action Style="text-align:center;">
+    <button mat-raised-button [disabled]="!formNumber.valid" (click)="updateMobileNum()" color="primary">
+      Change</button
+    >
+  </div>
+  

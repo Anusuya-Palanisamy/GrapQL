@@ -1,0 +1,32 @@
+/*.main-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mat-card-cvr {
+  width: 80%;
+  text-align: center;
+}*/
+.sample-card {
+  margin: 0 auto;
+  width: 60%;
+  height: 93%;
+}
+.mat-card-cvr {
+  width: 80%;
+  height: 600px;
+  line-height: 500px;
+  text-align: center;
+}
+
+.main-outer {
+  height: 130vh;
+}
+.card {
+  /*background-color: rgba(245, 246, 252, 0.781);*/
+  margin: 0 auto;
+  width: 27%;
+  height: 115%;
+  text-align: center;
+}

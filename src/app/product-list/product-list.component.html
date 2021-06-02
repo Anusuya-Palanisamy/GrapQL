@@ -1,0 +1,16 @@
+<div class="row">
+    <div style="background-color: white;" ><br/>
+        <h2 style="text-align: center;color:blue">Welcome to Our Shop !</h2>
+        <span class="spacer"></span>
+    <table>
+        <tr  *ngFor="let laptop of laptopList">
+          <th *ngFor="let product of laptop">
+   
+
+  <app-product-item [productItem]="product" [addedWishlist]="wishlist.indexOf(product.id) >=0 " 
+      [addcartList]="cartList.indexOf(product.id) >=0 "></app-product-item>
+   </th>
+   </tr>
+   </table>
+   </div>
+</div>

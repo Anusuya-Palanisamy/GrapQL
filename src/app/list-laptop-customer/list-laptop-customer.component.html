@@ -1,0 +1,118 @@
+<div style="background-color: white;" ><br/>
+<h2 style="text-align: center;color:blue">Welcome to Our Shop !</h2>
+<span class="spacer"></span>
+
+<!--<div>
+  <mat-drawer #drawer1 class="example-sidenav-customer1" mode="side">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <a mat-button (click)="homepage()"
+          ><mat-icon>account_balance</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp; Home</a
+        ></mat-toolbar-row
+      >
+    </mat-toolbar>
+    <br />
+    <br />
+    <br />
+    <h2 (click)="accountDetails()">
+      <mat-icon>person</mat-icon>&nbsp;&nbsp;My Account
+    </h2>
+    <br />
+
+    <h2 (click)="orders()">
+      <mat-icon>open_in_browser</mat-icon>&nbsp;&nbsp;Orders
+    </h2>
+    <br />
+
+    <h2 (click)="myCart()">
+      <mat-icon>shopping_cart</mat-icon>&nbsp;&nbsp;My Cart
+    </h2>
+    <br />
+
+    <h2 (click)="showWishList()">
+      <mat-icon>favorite</mat-icon>&nbsp;&nbsp;wishlist
+    </h2>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button mat-raised-button (click)="drawer1.toggle()" color="primary">
+      <mat-icon>dehaze</mat-icon>Menu</button
+    ><br />
+    <br />
+  </div>
+</div>->
+
+<a mat-raised-button (click)="signOut()" color="primary"
+  ><mat-icon>power_settings_new</mat-icon> Logout</a
+>-->
+<!--<p style="color:blue">ID : {{ localValue }}</p>-->
+<br />
+
+<div class="customerDetails">
+  <br />
+ 
+   
+        <table>
+          <tr *ngFor="let Laptop1 of laptopList">
+            <th *ngFor="let laptopArray of Laptop1 ">
+             
+              <mat-card class="card"  >
+               
+                <mat-card-content>
+                  <div>
+               <mat-button-toggle 
+                    mat-icon-button
+                    matTooltip="Add to wishlist" (click)="addWishList(laptopArray)">
+                    
+                    <mat-icon  id="addToSummary"  style="color:black;"
+                  >favorite</mat-icon> </mat-button-toggle>
+
+                    <i *ngIf="addedWishlist" class="fas fa-heart float-right" (click)="remwish(laptopArray.id)"></i>
+                     <i *ngIf="!addedWishlist" class="far fa-heart float-right"  (click)="addWishList(laptopArray)"></i>
+   
+                  <img src="/assets/image/Laptop.jpg" />
+                  
+                  <p>
+                    Brand: {{ laptopArray.brand }}, Price:₹
+                    {{ laptopArray.price }}.00,Processor:{{
+                      laptopArray.processor
+                    }}
+                  </p>
+
+                  <p>
+                    Memeory: {{ laptopArray.memory }}, Screen Size:
+                    {{ laptopArray.screenSize }}, Graphices:
+                    {{ laptopArray.graphices }}
+                  </p>
+                  <p>
+                    Details: {{ laptopArray.details }}, Quantity :
+                    {{ laptopArray.quan }}
+                  </p>
+
+                  <mat-button-toggle 
+                    mat-raised-button
+                    (click)="addCart(laptopArray)"
+                    color="primary"
+                  >
+                    <mat-icon>add_shopping_cart</mat-icon>
+                    <span *ngIf="go">Go to cart</span> 
+                    <span *ngIf="add">Add To Cart</span></mat-button-toggle
+                  >&nbsp;&nbsp;
+                
+                  <button
+                    mat-raised-button
+                    (click)="buyLaptop(laptopArray.id)"
+                    color="primary"
+                  >
+                    <mat-icon>done</mat-icon> Buy Now
+                  </button>
+                </div></mat-card-content>
+                
+              </mat-card>
+            
+            </th>
+          </tr>
+        </table>
+     
+</div>
+</div>
